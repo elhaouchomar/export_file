@@ -1,12 +1,12 @@
 
-# ASCII-ART-WEB
+# ASCII-ART-WEB-EXPORT-FILE
 
 It's a web server for outputting the text in a graphic representation of ASCII.
 
-Ascii-art-web consists in creating and running a server, in which it will be possible to use a web GUI (graphical user interface) version of a program that outputs text in a graphical representation of ASCII
+Ascii-art-web-export consists on making sure that it is possible to export the output of the web application, at least in one export format at your choice. .txt and .csv
 
 # Authors
-zrdouane & oelhaouc
+zrdouane & oelhaouc & saayady
 
 # Usage
 1.To run program use the following command
@@ -15,7 +15,7 @@ zrdouane & oelhaouc
 ```
 2.Open the web browser and go to
 ```zsh
-click on the link 'http://localhost:3000/'
+click on the link 'http://localhost:3001/'
 ```
 #
 ```
