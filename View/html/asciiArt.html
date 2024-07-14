@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ascii-art-web</title>
+    <link href="/View/static/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/View/image/f.ico" type="image/x-icon">
+  </head>
+    <body>
+    <div>
+      <div class="conteiner">
+        <header class="mb-auto">
+          <div >
+            <h1 class="float-md-start">Ascii-art-web</h1>
+          </div>
+        </header>
+        <main class="px-3">
+          <br>
+          <center>
+          <div>
+            <br><br>
+            </form>
+          </div>
+         </center>
+          <br><br><br>
+          <center>
+            <div class="msg" ><pre class="pre_msg" >{{ .Message}}</pre></div>
+          </center>
+        </main>
+      </div>
+    </div>
+    <br><br>
+    <center>
+      <div id="ExportButton">
+        <select id="formatSelect" class="form_button">
+          <option value="txt">TXT</option>
+          <option value="csv">CSV</option>
+          <!-- <option value="html">html</option> -->
+        </select>
+        <a href="/download?data={{ .Message }}&exportFormat=txt" download="output" id="downloadLink">
+          <button class="form_button">Download</button>
+        </a>
+      </div>
+      <button class="form_button"> <a href="/">Home</a> </button>
+    </center>
+    <script>
+      document.getElementById('formatSelect').addEventListener('change', function() {
+        var format = this.value;
+        var downloadLink = document.getElementById('downloadLink');
+        var originalHref = `/download?data={{ .Message }}&exportFormat=${format}`;
+        // Assuming {{ .Message }} is URL-encoded, decode it first
+        var decodedData = decodeURIComponent('{{ .Message }}');
+        // Replace \n with \r\n for Windows compatibility
+        var correctedData = decodedData.replace(/\n/g, '\r\n');
+        // Re-encode the corrected data for the URL
+        var encodedData = encodeURIComponent(correctedData);
+        // Update the download link
+        downloadLink.href = `/download?data=${encodedData}&exportFormat=${format}`;
+        downloadLink.download = `output.${format}`;
+      });
+    </script>
+  </body>
+</html>

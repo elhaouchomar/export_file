@@ -1,0 +1,6 @@
+# Ignore all the unneeded files
+.dockerignore  # Docker ignore file, specifies patterns to exclude files from Docker build context
+.vscode/        # VS Code directory, contains user-specific settings and extensions
+Dockerfile     # Dockerfile, contains instructions for Docker to build images
+Run.sh         # Shell script, potentially used for running the docker images
+prune.sh       # Shell script, potentially used for cleaning up docker image and docker container
